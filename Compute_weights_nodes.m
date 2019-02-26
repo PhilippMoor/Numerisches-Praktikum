@@ -1,17 +1,13 @@
 clc;clear all;close all;
 
-Compute_weights(25)
-
-function done=Compute_weights(N)
-weights=zeros(N,N);nodes=zeros(N,N);
+N=25;weights=zeros(N,N);nodes=zeros(N,N);
 
 for i=1:N
     [nodes(i,1:i),weights(i,1:i)]=getGaussValues(i,0,1);
 end
 save nodes.mat
 save weights.mat
-done="Done";
-end
+disp("Done")
 
 
 function [x,w]=getGaussValues(N,a,b)
