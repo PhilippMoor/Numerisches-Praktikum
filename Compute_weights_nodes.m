@@ -10,6 +10,7 @@ save weights.mat
 disp("Done")
 
 
+
 function [x,w]=getGaussValues(N,a,b)
 
 % This script is for computing definite integrals using Legendre-Gauss 
