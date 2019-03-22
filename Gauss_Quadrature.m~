@@ -8,9 +8,7 @@ n = 2;
 struct = load("nodes.mat");
 
 
-x = struct.nodes(n+1,1:n+1);
-y = struct.nodes(n,1:n);
-weights_x = struct.weights(n+1,1:n+1);
-weights_y = struct.weights(n,1:n);
-
-
+x = struct.nodes(n,1:n)
+y = struct.nodes(n+1,1:n+1)
+weights_x = weights(n,1:n)
+weights_y = weights(n+1,1:n+1)
