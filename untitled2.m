@@ -1,0 +1,1 @@
+[nodes,weight] = lgwt(19,0,1)
