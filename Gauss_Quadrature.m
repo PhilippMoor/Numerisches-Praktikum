@@ -6,9 +6,8 @@ n = 2;
 
 % load matrices with nodes and weights
 nodes = load("nodes.mat")
-weights = load("weights.mat");
 
-x = nodes.nodes(n,1:n)
+x = nodes.nodes(n,1:n+1)
 y = x
-weights_x = weights.weights(n,1:n)
+weights_x = nodes.weights(n,1:n)
 weights_y = weights_x
