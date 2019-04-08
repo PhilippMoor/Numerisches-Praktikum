@@ -1,21 +1,20 @@
-function [m_tau,determinant] = make_m_tau_mat(A,B,C,fixed_vertex)
-% convert 3D input into 2D
-
-A = A(1:2)';
-B = B(1:2)';
-C = C(1:2)';
-
-fixed_vertex = fixed_vertex';
+function m_tau = make_m_tau_mat(A,B,C,type)
 
 % constructing m_tau (transforming matrix)
+m_tau = zeros(3,2);
 
-m_tau = zeros(2,2);
-m_tau(:,1) = B-A;
-m_tau(:,2) = C-B;
-
-% determinant (D_chi_tau)
-
-
+if type == 1
+    m_tau(:,1) = B-A;
+    m_tau(:,2) = C-B;
+elseif type == 2
+    m_tau(:,1) = C-B;
+    m_tau(:,2) = A-C;
+elseif type == 3
+    m_tau(:,1) = A-C;
+    m_tau(:,2) = B-A;
+else
+    error('You retarded stupid motherfucker choose a type 1 2 3');
+end
 
 end
 
