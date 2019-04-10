@@ -13,6 +13,7 @@ elseif type == 3
     m_tau(:,1) = A-C;
     m_tau(:,2) = B-A;
 else
+    error('type must be 1,2 or 3');
 end
 
 end
