@@ -13,7 +13,6 @@ elseif type == 3
     m_tau(:,1) = A-C;
     m_tau(:,2) = B-A;
 else
-    error('You retarded stupid motherfucker choose a type 1 2 3');
 end
 
 end
