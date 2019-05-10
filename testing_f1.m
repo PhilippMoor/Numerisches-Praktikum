@@ -264,7 +264,7 @@ rel_error_1
 step_error
 value
 
-subplot(4,3,7);
+% subplot(4,3,7);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -394,9 +394,9 @@ for k=1:n
     rel_error_3(k)=abs(I-value(k));
 end
 
-hold on
+hold off
 
-subplot(4,3,[10,11,12]);
+% subplot(4,3,[10,11,12]);
 
 
 semilogy(1:n,rel_error_1,'*',1:n,rel_error_2,'*',1:n,rel_error_3,'*')

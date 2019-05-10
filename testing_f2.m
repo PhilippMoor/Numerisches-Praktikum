@@ -14,8 +14,8 @@ g_1=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*log(x(1))*sqrt(det(m_tau'*m_tau))*x(1);
 g_2=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*log(norm(m_tau*[1;x(2)]))*sqrt(det(m_tau'*m_tau))*x(1);
 
 
-n=10;
-I=Gauss_Quadrature(20,g_1)+Gauss_Quadrature(20,g_2)
+n=20;
+I=Gauss_Quadrature(25,g_1)+Gauss_Quadrature(25,g_2)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g_1)+Gauss_Quadrature(k,g_2);
