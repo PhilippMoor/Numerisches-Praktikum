@@ -39,7 +39,7 @@ Ausgangslage des Integrationsproblems ist ein Dreieck im $\mathbb{R}^3$, und ein
 
 Um die zweidimensionale Gauss-Quadratur anzuwenden, muss das Dreieck affin auf das Einheitsquadrat in $\mathbb{R}^2$ abgebildet werden.
 
-\section{Transformation des Dreiecks in ein $\\$ Referenzdreieck im $\mathbb{R}^2$}
+\section{Transformation des Dreiecks ins $\\$ Einheitsquadrat in $\mathbb{R}^2$}
 Sei $\tau\subset \mathbb{R}^3$ ein beliebiges Dreieck (A,B,C)
 \[
 \tau = \left \{
@@ -66,14 +66,23 @@ Gesucht wird eine affine Funktion $\chi_i$ von $\tau$ nach $\tau_r$ so dass: $\c
 
 Die Funktion ist gegeben durch:
 \[
-\chi_I(x) = I + M \time x, \quad M := \left [
+\chi_I(x) = I + M\cdot x, \quad M := \left[
 \begin{pmatrix} B-A \end{pmatrix}
 |
 \begin{pmatrix} B-C \end{pmatrix}
-\right ] \in Mat(3\times 2,\mathbb{R})
+\right]
+ \in Mat(3\times 2,\mathbb{R})
 \]
 wobei I der Eckpunkt von $\tau$ ist, der auf 0 abgebildet wird.
 
+Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat sehr einfach. Sie ist durch folgende Funktion gegeben:
+
+\[
+	\rho : \mathbb{R}^2 \rightarrow \mathbb{R}^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
+\]
+
+
+ 
 
 \newpage
 
