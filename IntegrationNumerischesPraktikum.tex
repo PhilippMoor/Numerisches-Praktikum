@@ -28,6 +28,7 @@
 
 %% main text
 \section{Ausgangslage}
+Aufgrund der anhaltenden Klimaerwärmung kann man seit mehreren Jahren einen Rückgang der Gletscher beobachten. Um diese Problematik wissenschaftlich zu analysieren und den Schwund genau zu beschreiben. 
 Ausgangslage des Integrationsproblems ist ein Dreieck im $\mathbb{R}^3$, und eine Funktion $f$:
 \[
 \tau(i,j,k) =
@@ -44,8 +45,10 @@ Ausgangslage des Integrationsproblems ist ein Dreieck im $\mathbb{R}^3$, und ein
 \[
    f(x) : \mathbb{R}^2 \rightarrow \mathbb{R}
 \]
-
-Um die zweidimensionale Gauss-Quadratur anzuwenden, muss das Dreieck affin auf das Einheitsquadrat in $\mathbb{R}^2$ abgebildet werden.
+\\
+Um die zweidimensionale Gauss-Quadratur anzuwenden, muss das Dreieck affin auf das Einheitsquadrat in $\mathbb{R}^2$ abgebildet werden. \\
+\\
+\\
 
 \section{Transformation des Dreiecks ins \\ Einheitsquadrat in $\mathbb{R}^2$}
 Sei $\tau\subset \mathbb{R}^3$ ein beliebiges Dreieck (A,B,C)
@@ -58,7 +61,7 @@ Sei $\tau\subset \mathbb{R}^3$ ein beliebiges Dreieck (A,B,C)
 \begin{pmatrix} c_1\\ c_2 \\ c_3 \end{pmatrix}
 \right \}
 \]
-
+\\
 und $\tau_r \subset \mathbb{R}^2$ ein Referenzdreieck mit
 \[
  \tau_r = \left \{
@@ -69,9 +72,9 @@ und $\tau_r \subset \mathbb{R}^2$ ein Referenzdreieck mit
 \begin{pmatrix} 1\\ 1\end{pmatrix}
 \right \} .
 \]
-
-Gesucht wird eine affine Funktion $\chi_i$ von $\tau$ nach $\tau_r$ so dass: $\chi(\tau) = \tau_r$
-
+\\
+Gesucht wird eine affine Funktion $\chi_I$ von $\tau$ nach $\tau_r$ so dass: $\chi(\tau) = \tau_r$
+\\
 Die Funktion ist gegeben durch:
 \[
 \chi_I(x) = I + M\cdot x, \quad M := \left[
@@ -82,16 +85,18 @@ Die Funktion ist gegeben durch:
  \in Mat(3\times 2,\mathbb{R})
 \]
 wobei I der Eckpunkt von $\tau$ ist, der auf 0 abgebildet wird.
-
+\\
 Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat sehr einfach. Sie ist durch folgende Funktion gegeben:
 
 \[
 	\rho : \mathbb{R}^2 \rightarrow \mathbb{R}^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
 \]
+\\
 
 \newpage
 
 \section{Behandelte Funktionen und ihre Problemstellen}
+Umformungen mit Transformationssatz
 
 \newpage
 

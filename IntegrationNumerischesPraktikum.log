@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.28)  12 SEP 2019 17:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.28)  16 SEP 2019 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,9 +669,24 @@ Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (2.55289pt too wide) in paragraph at lines 48--49
-[]\OT1/cmr/m/n/12 Um die zwei-di-men-sion-ale Gauss-Quadratur anzuwen-den, muss
- das Dreieck
+Overfull \hbox (23.1675pt too wide) in paragraph at lines 31--33
+\OT1/cmr/m/n/12 einen R^^?uckgang der Gletscher beobachten. Um diese Prob-lemat
+ik wis-senschaftlich
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--52
+
  []
 
 
@@ -679,6 +694,11 @@ Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 93--95
+
+ []
+
+
 Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 
 
@@ -690,7 +710,11 @@ Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 
 
-[5] (./IntegrationNumerischesPraktikum.aux) ) 
+[5]
+Overfull \vbox (2.60004pt too high) has occurred while \output is active []
+
+
+[6] (./IntegrationNumerischesPraktikum.aux) ) 
 Here is how much of TeX's memory you used:
  13536 strings out of 492649
  278074 string characters out of 6129622
@@ -710,10 +734,10 @@ ype1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on IntegrationNumerischesPraktikum.pdf (5 pages, 105059 bytes).
+Output written on IntegrationNumerischesPraktikum.pdf (6 pages, 106465 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 63 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
