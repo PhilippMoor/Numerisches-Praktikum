@@ -28,10 +28,12 @@
 
 %% main text
 \section{Ausgangslage}
-Aufgrund der anhaltenden Klimaerwärmung kann man seit mehreren Jahren einen Rückgang der Gletscher beobachten. Um diese Problematik wissenschaftlich zu analysieren und den Schwund genau zu beschreiben. 
-Ausgangslage des Integrationsproblems ist ein Dreieck im $\mathbb{R}^3$, und eine Funktion $f$:
+Aufgrund der anhaltenden Klimaerwärmung kann man seit mehreren Jahren einen Rückgang der Gletscher beobachten. Lange Zeit wurde der Schwund der Gletscher nur abgeschätzt. Da dies zwischen den Forschenden in sehr hohen Differenzen endete, wollte man die Volumen genauer berechnen können. Folgender Ansatz wurde verfolgt:\\
+Zuerst wurde die gesamte Gletscheroberfläche in Dreiecke aufgeteilt. An allen Eckpunkten dieser Dreiecke wird mittels Schallwellen die Tiefe bis zum Gestein gemessen. Weiter wird anhand konkreter Funktionen die Unterseite der Gletscher modelliert. Das Gesamtvolumen wird nun mit Hilfe einer zweidimensionalen Integration über die triangulierte Oberfläche berechnet. \\ \\ \\
+Betrachten wir nun die Ausgangslage dieses Problems mathematisch: \\
+Gegeben sei ein beliebiges Dreieck in $\mathbb{R}^3$ und eine Funktion $f$:
 \[
-\tau(i,j,k) =
+\tau(i,j,k) :=
 \left \{
 		 \begin{pmatrix} i_1\\ i_2 \\ i_3 \end{pmatrix}
 		 ,
@@ -40,14 +42,15 @@ Ausgangslage des Integrationsproblems ist ein Dreieck im $\mathbb{R}^3$, und ein
 		 \begin{pmatrix} k_1\\ k_2 \\ k_3 \end{pmatrix}
 \right \}
 \]
-
-
 \[
    f(x) : \mathbb{R}^2 \rightarrow \mathbb{R}
 \]
 \\
-Um die zweidimensionale Gauss-Quadratur anzuwenden, muss das Dreieck affin auf das Einheitsquadrat in $\mathbb{R}^2$ abgebildet werden. \\
-\\
+Das Gletschervolumen $V$ über diesem Dreieck entspricht demnach folgenden Integral:
+\[
+V=\int_{\tau}fdx
+\]
+Unser Ziel ist nun dieses Integral mit geeigneten Transformationen in ein Integral über dem Einheitsquadrat in $\mathbb{R}^2$ umzuformen, damit es in einen nächsten Schritt mit zweidimensionale Gauss - Quadratur zu approximieren. \\
 \\
 
 \section{Transformation des Dreiecks ins \\ Einheitsquadrat in $\mathbb{R}^2$}
@@ -92,11 +95,11 @@ Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat
 	\rho : \mathbb{R}^2 \rightarrow \mathbb{R}^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
 \]
 \\
-
+Umformungen mit Transformationssatz
 \newpage
 
 \section{Behandelte Funktionen und ihre Problemstellen}
-Umformungen mit Transformationssatz
+
 
 \newpage
 

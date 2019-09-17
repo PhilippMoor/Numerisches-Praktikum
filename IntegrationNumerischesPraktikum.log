@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.28)  16 SEP 2019 16:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.28)  17 SEP 2019 09:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,23 +669,22 @@ Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (23.1675pt too wide) in paragraph at lines 31--33
-\OT1/cmr/m/n/12 einen R^^?uckgang der Gletscher beobachten. Um diese Prob-lemat
-ik wis-senschaftlich
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--52
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--52
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--52
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
 
  []
 
@@ -694,11 +693,6 @@ Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 93--95
-
- []
-
-
 Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 
 
@@ -716,10 +710,10 @@ Overfull \vbox (2.60004pt too high) has occurred while \output is active []
 
 [6] (./IntegrationNumerischesPraktikum.aux) ) 
 Here is how much of TeX's memory you used:
- 13536 strings out of 492649
- 278074 string characters out of 6129622
- 303309 words of memory out of 5000000
- 17335 multiletter control sequences out of 15000+600000
+ 13537 strings out of 492649
+ 278082 string characters out of 6129622
+ 302309 words of memory out of 5000000
+ 17336 multiletter control sequences out of 15000+600000
  543631 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,36p,10401b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -734,7 +728,7 @@ ype1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on IntegrationNumerischesPraktikum.pdf (6 pages, 106465 bytes).
+Output written on IntegrationNumerischesPraktikum.pdf (6 pages, 110139 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream
