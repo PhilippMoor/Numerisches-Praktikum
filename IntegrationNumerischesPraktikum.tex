@@ -39,9 +39,9 @@
 %% main text
 \section{Ausgangslage}
 Aufgrund der anhaltenden Klimaerwärmung kann man seit mehreren Jahren einen Rückgang der Gletscher beobachten. Lange Zeit wurde der Schwund der Gletscher nur abgeschätzt. Da dies zwischen den Forschenden in sehr hohen Differenzen endete, wollte man die Volumen genauer berechnen können. Folgender Ansatz wurde verfolgt:\\
-Zuerst wurde die gesamte Gletscheroberfläche in Dreiecke aufgeteilt. An allen Eckpunkten dieser Dreiecke wird mittels Schallwellen die Tiefe bis zum Gestein gemessen. Weiter wird anhand konkreter Funktionen die Unterseite der Gletscher modelliert. Das Gesamtvolumen wird nun mit Hilfe einer zweidimensionalen Integration über die triangulierte Oberfläche berechnet. \\ \\ \\
+Zuerst wurde die gesamte Gletscheroberfläche in Dreiecke aufgeteilt. An allen Eckpunkten dieser Dreiecke wird mittels Schallwellen die Tiefe bis zum Gestein gemessen. Weiter wird anhand konkreter Funktionen die Unterseite der Gletscher modelliert um damit das Gesamtvolumen mit Hilfe eines zweidimensionalen Integral über die triangulierte Oberfläche berechnet. \\ \\ \\
 Betrachten wir nun die Ausgangslage dieses Problems mathematisch: \\
-Gegeben sei ein beliebiges Dreieck in $\R^3$ und eine Funktion $f$:
+Gegeben sei ein beliebiges Dreieck $\tau\subset\R^3$ und die Funktion $f$:
 \[
 \tau(i,j,k) :=
 \left \{
@@ -58,55 +58,46 @@ Gegeben sei ein beliebiges Dreieck in $\R^3$ und eine Funktion $f$:
 \\
 Das Gletschervolumen $V$ über diesem Dreieck entspricht demnach folgenden Integral:
 \[
-V=\int_{\tau}fdx
+V=\int_{\tau}f(x) dx
 \]
-Unser Ziel ist nun dieses Integral mit geeigneten Transformationen in ein Integral über dem Einheitsquadrat $Q:=[0,1]^2 \subset \R^2$ umzuformen, damit es in einen nächsten Schritt mit zweidimensionale Gauss - Quadratur zu approximieren. \\
+Unser Ziel ist nun dieses Integral mit geeigneten Transformationen in ein Integral über dem Einheitsquadrat $Q:=[0,1]^2 \subset \R^2$ umzuformen, damit es in einen nächsten Schritt mit zweidimensionale Gauss - Quadratur approximiert werden kann.  \\
 \\
 
 \section[Transformation des Dreiecks ins Einheitsquadrat in $\R^2$]{Transformation des Dreiecks ins Einheits-\\quadrat in $\R^2$}
-Sei $\tau\subset\R^3$ ein beliebiges Dreieck (A,B,C)
+Zuerst gehen wir auf die Transformationen vom ursprünglichen Dreieck $\tau$ ins Einheitsquadrat $Q:=[0,1]^2$ ein.Um es ein bisschen übersichtlicher zu gestalten, nehmen wir uns ein Referenzdreieck $\tau_r\subset\R^2$ zur Hilfe. Gegeben sind also folgende Dreiecke
 \[
-\tau := \left \{
-\begin{pmatrix} a_1\\ a_2 \\ a_3 \end{pmatrix}
-,
-\begin{pmatrix} b_1\\ b_2 \\ b_3 \end{pmatrix}
-,
-\begin{pmatrix} c_1\\ c_2 \\ c_3 \end{pmatrix}
-\right \}
+\tau := \left \{ A,B,C \right \}
+\quad\text{und}\quad
+\tau_r := \left \{ \begin{pmatrix} 0\\ 0 \end{pmatrix},
+\begin{pmatrix} 1\\ 0\end{pmatrix},
+\begin{pmatrix} 1\\1\end{pmatrix} \right \}.
 \]
-\\
-und $\tau_r\subset\R^2$ ein Referenzdreieck mit
+Wir suchen also in einem ersten Schritt eine affine Funktion $\chi_{(i,j,k)}:\tau_r\rightarrow\tau$ so dass $\chi_{(i,j,k)}(\tau_r)=\tau$. Die Funktion ist definiert als
 \[
- \tau_r := \left \{
-\begin{pmatrix} 0\\ 0 \end{pmatrix}
-,
-\begin{pmatrix} 1\\ 0\end{pmatrix}
-,
-\begin{pmatrix} 1\\ 1\end{pmatrix}
-\right \} .
+\chi_{(i,j,k)}(\hat{x})= i + M\cdot \hat{x}, \quad M := \left[ \begin{pmatrix} j-i \end{pmatrix} |
+\begin{pmatrix} k-j \end{pmatrix} \right] \in Mat(3\times 2,\R)
 \]
-\\
-Gesucht wird eine affine Funktion $\chi_I$ von $\tau$ nach $\tau_r$ so dass: $\chi_I(\tau) = \tau_r$. Die Funktion ist gegeben durch:
+wobei $\hat{x}\in \tau_r$ und $(i,j,k)\in\sigma(A,B,C)$.\\
+Bemerke, die Indizes $(i,j,k)$ definieren wie die Eckpunkte von $\tau$ auf die Eckpunkte von $\tau_r$ abgebildet werden. Durch eine geeignete Wahl der Permutation können wir die Transformation beeinflussen, was sich später auf Konvergenzgeschwindigkeit der Gauss - Quadratur auswirkt.
+In einem zweiten Schritt transformieren wir das Referenzdreieck ins Einheitsquadrat $Q$. Dafür definieren wir folgende Funktion:
 \[
-\chi_I(x) = I + M\cdot x, \quad M := \left[
-\begin{pmatrix} B-A \end{pmatrix}
-|
-\begin{pmatrix} B-C \end{pmatrix}
-\right]
- \in Mat(3\times 2,\R)
+\rho : Q \rightarrow \tau_r,\quad \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto
+\begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
 \]
-wobei I der Eckpunkt von $\tau$ ist, der auf den Ursprung abgebildet wird. Dadurch kann je nach Funktion eine kritische Stelle, eine Singularität, entstehen. Im Kapitel 3 wird auf die in diesem Bericht betrachteten Funktionen eingegangen.
-\\
-Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat sehr einfach und ist durch folgende Funktion gegeben:
-\[
-\rho : \R^2 \rightarrow \R^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
-\]
+Betrachten wir nun das ursprüngliche Integral und wenden den Transformationssatz doppelt mit den obigen Funktionen an.
+\begin{align}
+V=\int_{\tau}f(x) dx &= \int_{\tau_r}(f\circ\chi_{(i,j,k)})(\hat{x}) \cdot \sqrt{det(M^T\cdot M)} dx\\
+&=\int_{Q} (f\circ\chi_{(i,j,k)}\circ\rho)(\mu,\nu) \cdot \sqrt{det(M^T\cdot M)} \cdot \sqrt{det(J_\rho)} dx\\
+&=\int_{0}^{1}\int_{0}^{1} 
+\end{align}
 \\
 
 \newpage
 
 \section{Behandelte Funktionen und ihre Problemstellen}
 
+
+Probleme die mit der Transformation auftauchen --> Singularitäten und ihre Lösungen
 
 \newpage
 
