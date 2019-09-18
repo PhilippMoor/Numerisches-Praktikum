@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.28)  18 SEP 2019 17:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.28)  18 SEP 2019 17:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -704,30 +704,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
 [2]
-Overfull \hbox (21.50192pt too wide) in paragraph at lines 101--101
+Overfull \hbox (21.50192pt too wide) in paragraph at lines 102--102
 []\T1/cmr/bx/n/17.28 Behandelte Funk-tio-nen und ihre Prob-lem-stellen 
  []
 
 [3] [4]
-Overfull \hbox (8.15433pt too wide) in paragraph at lines 115--118
+Overfull \hbox (8.15433pt too wide) in paragraph at lines 116--119
 \T1/cmr/m/n/12 Für das Testen un-serer Meth-o-den spie-len ver-schiedene Pa-ram
 -e-ter eine entschei-
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 120.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 121.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 120.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 121.
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--143
+Underfull \hbox (badness 10000) in paragraph at lines 139--144
 
  []
 
@@ -757,7 +757,7 @@ pe1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 public/cm-super/sfrm1200.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pu
 blic/cm-super/sfrm1440.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
 ic/cm-super/sfrm2074.pfb>
-Output written on IntegrationNumerischesPraktikum.pdf (7 pages, 184794 bytes).
+Output written on IntegrationNumerischesPraktikum.pdf (7 pages, 184506 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  64 compressed objects within 1 object stream

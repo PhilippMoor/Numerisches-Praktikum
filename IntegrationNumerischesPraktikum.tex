@@ -72,8 +72,8 @@ Zuerst gehen wir auf die Transformationen vom ursprünglichen Dreieck $\tau$ ins
 \[
 \tau := \left \{ A,B,C \right \}
 \quad\text{und}\quad
-\tau_r := \left \{ \begin{pmatrix} 0\\ 0 \end{pmatrix},
-\begin{pmatrix} 1\\ 0\end{pmatrix},
+\tau_r := \left \{ \begin{pmatrix} 0\\0 \end{pmatrix},
+\begin{pmatrix} 1\\0\end{pmatrix},
 \begin{pmatrix} 1\\1\end{pmatrix} \right \}.
 \]
 Wir suchen also in einem ersten Schritt eine affine Funktion $\chi_{(i,j,k)}:\tau_r\rightarrow\tau$ so dass $\chi_{(i,j,k)}(\tau_r)=\tau$. Die Funktion ist definiert als
@@ -89,11 +89,12 @@ In einem zweiten Schritt transformieren wir das Referenzdreieck ins Einheitsquad
 \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
 \]
 Betrachten wir nun das ursprüngliche Integral und wenden den Transformationssatz doppelt mit den obigen Funktionen an.
-\begin{align}
-V=\int_{\tau}f(x) dx &= \int_{\tau_r}(f\circ\chi_{(i,j,k)})(\hat{x}) \cdot \sqrt{det(M^T\cdot M)} dx\\
+\begin{align*}
+V &=\int_{\tau}f(x) dx\\
+&= \int_{\tau_r}(f\circ\chi_{(i,j,k)})(\hat{x}) \cdot \sqrt{det(M^T\cdot M)} dx\\
 &=\int_{Q} (f\circ\chi_{(i,j,k)}\circ\rho)(\mu,\nu) \cdot \sqrt{det(M^T\cdot M)} \cdot \sqrt{det(J_\rho)} dx\\
 &=\int_{0}^{1}\int_{0}^{1} 
-\end{align}
+\end{align*}
 \\
 
 \newpage
@@ -105,7 +106,7 @@ Probleme die mit der Transformation auftauchen --> Singularitäten und ihre Lös
 
 \newpage
 
-\section{Qauss-Quadratur}
+\section{Qauss - Quadratur}
 \subsection{Berechnung der Stützstellen und Gewichte}
 
 \newpage
@@ -118,9 +119,9 @@ Zu den Parametern die Einfluss auf das Resultat haben können gehören :
 
 \begin{itemize}
 	\item Form des Referenzdreiecks \& Positionierung im $\R^3$
-	\item Gutartigkeit der Funktion bezgl. Singularitäten
-	\item Abhängigkeit von der Wahl des Referenzvertexes
-	\item Anzahl der Gausspunkte
+	\item Gutartigkeit der Funktion bzgl. Singularitäten
+	\item Abhängigkeit von der Wahl des Referenzeckpunktes
+	\item Anzahl der Gauss - Stützstellen
 \end{itemize}
 
 Unser Auftrag war es konkret unsere Methode an folgenden Funktionen unter beliebiger Wahl des Referenzdreiecks zu Testen:
@@ -129,8 +130,8 @@ Unser Auftrag war es konkret unsere Methode an folgenden Funktionen unter belieb
 
 
 \begin{itemize}
-	\item Polynome beliebigen grades
-	\item $f(y) = \frac{1}{||y - A_l||} $ mit $A_t$ ein fixierter Vertex des Dreiecks
+	\item Polynome beliebigen Grades
+	\item $f(y) = \frac{1}{||y - A_l||} $ mit $A_t$ einem fixierten Eckpunkt des Dreiecks
 	\item $g(y) = log(||x - y||)  , \text{mit} \quad x = (x_1,x_2,x_3) \in \R^3\quad$ fixiert 
 	\item $h(y) =x\cdot log(x) $
 \end{itemize}
@@ -138,8 +139,8 @@ Unser Auftrag war es konkret unsere Methode an folgenden Funktionen unter belieb
 Die Wahl der Test-Funktionen wurde so getroffen, um die Methode gezielt auf kritische Resultate oder eine allfällige Run-Time-Inefficency zu untersuchen.\\
 Bei den Polynomen liegt der Fokus darauf, die Präzision der Methode unter wachsendem Grad des Polynoms zu untersuchen.
 \\
-Bei $f(y)$ liegt die Problematik innerhalb des Betrags im Nenner des Bruchs. wenn sich der wert $y$ dem Vertex des Dreiecks nähert kann abhängig der Wahl des Referenzvertexes eine Singularität auftreten.\\
-Die funktion $g(y)$ bewegt sich sehr schnell gegen $-\infty$ wenn $x$ und $y$ sich einander annähern, was insbesondere zu einer starken verfälschung des Resultats führen kann.\\
+Bei $f(y)$ liegt die Problematik innerhalb des Betrags im Nenner des Bruchs. Wenn sich der Wert $y$ dem Eckpunkt des Dreiecks nähert, kann abhängig der Wahl des Referenzeckpunktes eine Singularität auftreten.\\
+Die Funktion $g(y)$ bewegt sich sehr schnell gegen $-\infty$ wenn $x$ und $y$ sich einander annähern, was insbesondere zu einer starken Verfälschung des Resultats führen kann.\\
 
 
 \subsection{Testverfahren}
