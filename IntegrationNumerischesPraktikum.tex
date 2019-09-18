@@ -1,11 +1,15 @@
 
 \documentclass[12pt]{article}
 \usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{lineno}
 \usepackage{scrpage2}
+
 %\journal{Journal of Mathematical Stupidity}
 \def\datengerman{\def\today{\number\day.~\month@ngerman\space\number\year}}
 \begin{document}
@@ -102,6 +106,45 @@ Umformungen mit Transformationssatz
 
 \section{Qauss-Quadratur}
 \subsection{Berechnung der Stützstellen und Gewichte}
+
+\newpage
+
+\section{Tests}
+
+Für das Testen unserer Methoden spielen verschiedene Parameter eine entscheidende Rolle, daher bauten wir eine Test-Umgebung in Matlab, die es uns ermöglichte diese Parameter zu verändern und Plots zu erstellen um Auswertungen vorzunehmen.
+\\
+Zu den Parametern die Einfluss auf das Resultat haben können gehören :
+
+\begin{itemize}
+	\item Form des Referenzdreiecks \& Positionierung im $\mathbb{R}^3$
+	\item Gutartigkeit der Funktion bezgl. Singularitäten
+	\item Abhängigkeit von der Wahl des Referenzvertexes
+	\item Anzahl der Gausspunkte
+\end{itemize}
+
+Unser Auftrag war es konkret unsere Methode an folgenden Funktionen unter beliebiger Wahl des Referenzdreiecks zu Testen:
+
+
+
+
+\begin{itemize}
+	\item Polynome beliebigen grades
+	\item $f(y) &= \frac{1}{||y - A_l||} $ mit $A_t$ ein fixierter Vertex des Dreiecks
+	\item $g(y) &= log(||x - y||)  , mit\quad x = (x_1,x_2,x_3) \in \mathbb{R}^3\quad$ \text{fixiert} 
+	\item $h(y) &=x\time log(x) $
+\end{itemize}
+
+Die Wahl der Test-Funktionen wurde so getroffen, um die Methode gezielt auf kritische Resultate oder eine allfällige Run-Time-Inefficency zu untersuchen.\\
+Bei den Polynomen liegt der Fokus darauf, die Präzision der Methode unter wachsendem Grad des Polynoms zu untersuchen.
+\\
+Bei $f(y)$ liegt die Problematik innerhalb des Betrags im Nenner des Bruchs. wenn sich der wert $y$ dem Vertex des Dreiecks nähert kann abhängig der Wahl des Referenzvertexes eine Singularität auftreten.\\
+Die funktion $g(y)$ bewegt sich sehr schnell gegen $-\infty$ wenn $x$ und $y$ sich einander annähern, was insbesondere zu einer starken verfälschung des Resultats führen kann.\\
+
+
+\subsection{Testverfahren}
+
+Das Testen dieser Funktionen
+
 
 \newpage
 
