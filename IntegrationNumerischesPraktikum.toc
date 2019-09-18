@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Ausgangslage}{1}
+\contentsline {section}{\numberline {2}Transformation des Dreiecks ins Einheitsquadrat in $\mathbb {R}^2$}{2}
+\contentsline {section}{\numberline {3}Behandelte Funktionen und ihre Problemstellen}{3}
+\contentsline {section}{\numberline {4}Qauss-Quadratur}{4}
+\contentsline {subsection}{\numberline {4.1}Berechnung der St\IeC {\"u}tzstellen und Gewichte}{4}
+\contentsline {section}{\numberline {5}Resultate}{5}

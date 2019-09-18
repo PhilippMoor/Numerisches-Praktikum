@@ -5,21 +5,31 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{lineno}
-\usepackage{scrpage2}
-%\journal{Journal of Mathematical Stupidity}
-\\
-\begin{document}
+\usepackage{fancyhdr}
 
-%\begin{frontmatter}
+%commands
+\newcommand{\monthwordlong}[1]{\ifcase#1 \or Januar\or Februar\or März\or April\or Mai\or Juni\or Juli\or August\or September\or Oktober\or November\or Dezember\fi}
+\newcommand{\monthwordshort}[1]{\ifcase#1\or Jan\or Feb\or März\or Apr\or Mai\or Jun\or Jul\or Aug\or Sept\or Okt\or Nov\or Dez\fi} 
+\newcommand{\datelong}{\number\day. \monthwordlong{\the\month} \number\year}
+\newcommand{\dateshort}{\number\day. \monthwordshort{\the\month} \number\year}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\dateshort}
+\fancyhead[R]{Philipp Moor, Jonas Guler}
+\fancyfoot[R]{\thepage}
+
+\begin{titlepage}
+\clearpage
 \title{Integration über eine beliebige Dreiecksfläche}
 \author{Jonas Guler, Philipp Moor}
+\date{\datelong}
 \maketitle
-\pagestyle{scrheadings}
-\clearscrheadfoot
-\ihead{\number\day.\the\month.\number\year}
-\ohead{Philipp Moor, Jonas Guler}
-\ofoot{\pagemark}
-%\end{frontmatter}
+\thispagestyle{empty}
+\tableofcontents
+\end{titlepage}
 
 \newpage
 %
@@ -31,7 +41,7 @@
 Aufgrund der anhaltenden Klimaerwärmung kann man seit mehreren Jahren einen Rückgang der Gletscher beobachten. Lange Zeit wurde der Schwund der Gletscher nur abgeschätzt. Da dies zwischen den Forschenden in sehr hohen Differenzen endete, wollte man die Volumen genauer berechnen können. Folgender Ansatz wurde verfolgt:\\
 Zuerst wurde die gesamte Gletscheroberfläche in Dreiecke aufgeteilt. An allen Eckpunkten dieser Dreiecke wird mittels Schallwellen die Tiefe bis zum Gestein gemessen. Weiter wird anhand konkreter Funktionen die Unterseite der Gletscher modelliert. Das Gesamtvolumen wird nun mit Hilfe einer zweidimensionalen Integration über die triangulierte Oberfläche berechnet. \\ \\ \\
 Betrachten wir nun die Ausgangslage dieses Problems mathematisch: \\
-Gegeben sei ein beliebiges Dreieck in $\mathbb{R}^3$ und eine Funktion $f$:
+Gegeben sei ein beliebiges Dreieck in $\R^3$ und eine Funktion $f$:
 \[
 \tau(i,j,k) :=
 \left \{
@@ -43,20 +53,20 @@ Gegeben sei ein beliebiges Dreieck in $\mathbb{R}^3$ und eine Funktion $f$:
 \right \}
 \]
 \[
-   f(x) : \mathbb{R}^2 \rightarrow \mathbb{R}
+   f(x) : \R^2 \rightarrow \R
 \]
 \\
 Das Gletschervolumen $V$ über diesem Dreieck entspricht demnach folgenden Integral:
 \[
 V=\int_{\tau}fdx
 \]
-Unser Ziel ist nun dieses Integral mit geeigneten Transformationen in ein Integral über dem Einheitsquadrat in $\mathbb{R}^2$ umzuformen, damit es in einen nächsten Schritt mit zweidimensionale Gauss - Quadratur zu approximieren. \\
+Unser Ziel ist nun dieses Integral mit geeigneten Transformationen in ein Integral über dem Einheitsquadrat $Q:=[0,1]^2 \subset \R^2$ umzuformen, damit es in einen nächsten Schritt mit zweidimensionale Gauss - Quadratur zu approximieren. \\
 \\
 
-\section{Transformation des Dreiecks ins \\ Einheitsquadrat in $\mathbb{R}^2$}
-Sei $\tau\subset \mathbb{R}^3$ ein beliebiges Dreieck (A,B,C)
+\section[Transformation des Dreiecks ins Einheitsquadrat in $\R^2$]{Transformation des Dreiecks ins Einheits-\\quadrat in $\R^2$}
+Sei $\tau\subset\R^3$ ein beliebiges Dreieck (A,B,C)
 \[
-\tau = \left \{
+\tau := \left \{
 \begin{pmatrix} a_1\\ a_2 \\ a_3 \end{pmatrix}
 ,
 \begin{pmatrix} b_1\\ b_2 \\ b_3 \end{pmatrix}
@@ -65,9 +75,9 @@ Sei $\tau\subset \mathbb{R}^3$ ein beliebiges Dreieck (A,B,C)
 \right \}
 \]
 \\
-und $\tau_r \subset \mathbb{R}^2$ ein Referenzdreieck mit
+und $\tau_r\subset\R^2$ ein Referenzdreieck mit
 \[
- \tau_r = \left \{
+ \tau_r := \left \{
 \begin{pmatrix} 0\\ 0 \end{pmatrix}
 ,
 \begin{pmatrix} 1\\ 0\end{pmatrix}
@@ -76,26 +86,23 @@ und $\tau_r \subset \mathbb{R}^2$ ein Referenzdreieck mit
 \right \} .
 \]
 \\
-Gesucht wird eine affine Funktion $\chi_I$ von $\tau$ nach $\tau_r$ so dass: $\chi(\tau) = \tau_r$
-\\
-Die Funktion ist gegeben durch:
+Gesucht wird eine affine Funktion $\chi_I$ von $\tau$ nach $\tau_r$ so dass: $\chi_I(\tau) = \tau_r$. Die Funktion ist gegeben durch:
 \[
 \chi_I(x) = I + M\cdot x, \quad M := \left[
 \begin{pmatrix} B-A \end{pmatrix}
 |
 \begin{pmatrix} B-C \end{pmatrix}
 \right]
- \in Mat(3\times 2,\mathbb{R})
+ \in Mat(3\times 2,\R)
 \]
-wobei I der Eckpunkt von $\tau$ ist, der auf 0 abgebildet wird.
+wobei I der Eckpunkt von $\tau$ ist, der auf den Ursprung abgebildet wird. Dadurch kann je nach Funktion eine kritische Stelle, eine Singularität, entstehen. Im Kapitel 3 wird auf die in diesem Bericht betrachteten Funktionen eingegangen.
 \\
-Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat sehr einfach. Sie ist durch folgende Funktion gegeben:
-
+Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat sehr einfach und ist durch folgende Funktion gegeben:
 \[
-\rho : \mathbb{R}^2 \rightarrow \mathbb{R}^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
+\rho : \R^2 \rightarrow \R^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
 \]
 \\
-Umformungen mit Transformationssatz
+
 \newpage
 
 \section{Behandelte Funktionen und ihre Problemstellen}
