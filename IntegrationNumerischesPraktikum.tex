@@ -62,7 +62,7 @@ Gegeben sei ein beliebiges Dreieck $\tau\subset\R^3$ und die Funktion $f$:
 \\
 Das Gletschervolumen $V$ über diesem Dreieck entspricht demnach folgenden Integral:
 \[
-V=\int_{\tau}f(x) dx
+V=\int_{\tau}f(x) \: dx
 \]
 Unser Ziel ist nun dieses Integral mit geeigneten Transformationen in ein Integral über dem Einheitsquadrat $Q:=[0,1]^2 \subset \R^2$ umzuformen, damit es in einen nächsten Schritt mit zweidimensionale Gauss - Quadratur approximiert werden kann.  \\
 \\
@@ -90,10 +90,11 @@ In einem zweiten Schritt transformieren wir das Referenzdreieck ins Einheitsquad
 \]
 Betrachten wir nun das ursprüngliche Integral und wenden den Transformationssatz doppelt mit den obigen Funktionen an.
 \begin{align*}
-V &=\int_{\tau}f(x) dx\\
-&= \int_{\tau_r}(f\circ\chi_{(i,j,k)})(\hat{x}) \cdot \sqrt{det(M^T\cdot M)} dx\\
-&=\int_{Q} (f\circ\chi_{(i,j,k)}\circ\rho)(\mu,\nu) \cdot \sqrt{det(M^T\cdot M)} \cdot \sqrt{det(J_\rho)} dx\\
-&=\int_{0}^{1}\int_{0}^{1} 
+V &=\int_{\tau}f(x) \: dx\\
+&= \int_{\tau_r}(f\circ\chi_{(i,j,k)})(\hat{x}) \cdot |\det(J_\chi)| \: dx\\
+&= \int_{\tau_r}(f\circ\chi_{(i,j,k)})(\hat{x}) \cdot \sqrt{\det(M^T\cdot M)} \: dx\\
+&=\int_{Q} (f\circ\chi_{(i,j,k)}\circ\rho)(\mu,\nu) \cdot \sqrt{\det(M^T\cdot M)} \cdot |\det(J_\rho)| \: dx\\
+&=\int_{0}^{1}\int_{0}^{1} (f\circ\chi_{(i,j,k)})(\mu,\mu\cdot\nu) \cdot \sqrt{\det(M^T\cdot M)} \cdot \mu \:dx\\
 \end{align*}
 \\
 
