@@ -91,9 +91,7 @@ und $\tau_r \subset \mathbb{R}^2$ ein Referenzdreieck mit
 \right \} .
 \]
 \\
-Gesucht wird eine affine Funktion $\chi_I$ von $\tau$ nach $\tau_r$ so dass: $\chi(\tau) = \tau_r$
-\\
-Die Funktion ist gegeben durch:
+Gesucht wird eine affine Funktion $\chi_I$ von $\tau$ nach $\tau_r$ so dass: $\chi_{(i,j,k)}(\tau) = \tau_r$             nktion ist gegeben durch:
 \[
 \chi_I(x) = I + M\cdot x, \quad M := \left[
 \begin{pmatrix} B-A \end{pmatrix}
@@ -102,10 +100,9 @@ Die Funktion ist gegeben durch:
 \right]
  \in Mat(3\times 2,\mathbb{R})
 \]
-wobei I der Eckpunkt von $\tau$ ist, der auf 0 abgebildet wird.
+wobei I der Eckpunkt von $\tau$ ist, der auf 0 abgebildet wied.
 \\
 Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat sehr einfach. Sie ist durch folgende Funktion gegeben:
-
 \[
 	\rho : \mathbb{R}^2 \rightarrow \mathbb{R}^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
 \]
@@ -144,7 +141,7 @@ Unser Auftrag war es konkret unsere Methode an folgenden Funktionen unter belieb
 \begin{itemize}
 	\item Polynome beliebigen grades
 	\item $f(y) &= \frac{1}{||y - A_l||} $ mit $A_t$ ein fixierter Vertex des Dreiecks
-	\item $g(y) &= log(||x - y||)  , mit\quad x = (x_1,x_2,x_3) \in \mathbb{R}^3\quad$ \text{fixiert} 
+	\item $g(y) &= log(||x - y||)  , mit\quad x = (x_1,x_2,x_3) \in \mathbb{R}R^3\quad$ \txt{fixiert} 
 	\item $h(y) &=x\time log(x) $
 \end{itemize}
 
@@ -165,8 +162,7 @@ Das Testen dieser Funktionen verläuft nach folgendem Schema: \\
 
 % Place nodes
 \node [block] (init) {Wahl des Dreiecks};
-\node [cloud, left of=init] (expert) {expert};
-\node [cloud, right of=init] (system) {system};
+\node [block, right of=init] (referenz) {Wahl des Referenzvertex};
 \node [block, below of=init] (identify) {identify candidate models};
 \node [block, below of=identify] (evaluate) {evaluate candidate models};
 \node [block, left of=evaluate, node distance=3cm] (update) {update model};
