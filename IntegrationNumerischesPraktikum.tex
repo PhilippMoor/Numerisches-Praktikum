@@ -8,46 +8,48 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{lineno}
-\usepackage{fancyhdr}
+\usepackage{scrpage2}
+%tikz
 
-%commands
-\newcommand{\monthwordlong}[1]{\ifcase#1 \or Januar\or Februar\or März\or April\or Mai\or Juni\or Juli\or August\or September\or Oktober\or November\or Dezember\fi}
-\newcommand{\monthwordshort}[1]{\ifcase#1\or Jan\or Feb\or März\or Apr\or Mai\or Jun\or Jul\or Aug\or Sept\or Okt\or Nov\or Dez\fi} 
-\newcommand{\datelong}{\number\day. \monthwordlong{\the\month} \number\year}
-\newcommand{\dateshort}{\number\day. \monthwordshort{\the\month} \number\year}
-\newcommand{\R}{\mathbb{R}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+minimum height=2em]
 
 
+%\journal{Journal of Mathematical Stupidity}
+\def\datengerman{\def\today{\number\day.~\month@ngerman\space\number\year}}
 \begin{document}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\dateshort}
-\fancyhead[R]{Philipp Moor, Jonas Guler}
-\fancyfoot[R]{\thepage}
 
-\begin{titlepage}
-\clearpage
+%\begin{frontmatter}
 \title{Integration über eine beliebige Dreiecksfläche}
 \author{Jonas Guler, Philipp Moor}
-\date{\datelong}
 \maketitle
-\thispagestyle{empty}
-\tableofcontents
-\end{titlepage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\number\day.\the\month.\number\year}
+\ohead{Philipp Moor, Jonas Guler}
+\ofoot{\pagemark}
+%\end{frontmatter}
 
 \newpage
-%
-% Start line numbering here if you want
-%
+%%
+%% Start line numbering here if you want
+%%
 
 %% main text
 \section{Ausgangslage}
-Aufgrund der anhaltenden Klimaerwärmung kann man seit mehreren Jahren einen Rückgang der Gletscher beobachten. Lange Zeit wurde der Schwund der Gletscher nur abgeschätzt. Da dies zwischen den Forschenden in sehr hohen Differenzen endete, wollte man die Volumen genauer berechnen können. Folgender Ansatz wurde verfolgt:\\
-Zuerst wurde die gesamte Gletscheroberfläche in Dreiecke aufgeteilt. An allen Eckpunkten dieser Dreiecke wird mittels Schallwellen die Tiefe bis zum Gestein gemessen. Weiter wird anhand konkreter Funktionen die Unterseite der Gletscher modelliert um damit das Gesamtvolumen mit Hilfe eines zweidimensionalen Integral über die triangulierte Oberfläche berechnet. \\ \\ \\
-Betrachten wir nun die Ausgangslage dieses Problems mathematisch: \\
-Gegeben sei ein beliebiges Dreieck $\tau\subset\R^3$ und die Funktion $f$:
+Aufgrund der anhaltenden Klimaerwärmung kann man seit mehreren Jahren einen Rückgang der Gletscher beobachten. Um diese Problematik wissenschaftlich zu analysieren und den Schwund genau zu beschreiben. 
+Ausgangslage des Integrationsproblems ist ein Dreieck im $\mathbb{R}^3$, und eine Funktion $f$:
 \[
-\tau(i,j,k) :=
+\tau(i,j,k) =
 \left \{
 		 \begin{pmatrix} i_1\\ i_2 \\ i_3 \end{pmatrix}
 		 ,
@@ -56,57 +58,64 @@ Gegeben sei ein beliebiges Dreieck $\tau\subset\R^3$ und die Funktion $f$:
 		 \begin{pmatrix} k_1\\ k_2 \\ k_3 \end{pmatrix}
 \right \}
 \]
+
+
 \[
-   f(x) : \R^2 \rightarrow \R
+   f(x) : \mathbb{R}^2 \rightarrow \mathbb{R}
 \]
 \\
-Das Gletschervolumen $V$ über diesem Dreieck entspricht demnach folgenden Integral:
-\[
-V=\int_{\tau}f(x) dx
-\]
-Unser Ziel ist nun dieses Integral mit geeigneten Transformationen in ein Integral über dem Einheitsquadrat $Q:=[0,1]^2 \subset \R^2$ umzuformen, damit es in einen nächsten Schritt mit zweidimensionale Gauss - Quadratur approximiert werden kann.  \\
+Um die zweidimensionale Gauss-Quadratur anzuwenden, muss das Dreieck affin auf das Einheitsquadrat in $\mathbb{R}^2$ abgebildet werden. \\
+\\
 \\
 
-\section[Transformation des Dreiecks ins Einheitsquadrat in $\R^2$]{Transformation des Dreiecks ins Einheits-\\quadrat in $\R^2$}
-Zuerst gehen wir auf die Transformationen vom ursprünglichen Dreieck $\tau$ ins Einheitsquadrat $Q:=[0,1]^2$ ein.Um es ein bisschen übersichtlicher zu gestalten, nehmen wir uns ein Referenzdreieck $\tau_r\subset\R^2$ zur Hilfe. Gegeben sind also folgende Dreiecke
+\section{Transformation des Dreiecks ins \\ Einheitsquadrat in $\mathbb{R}^2$}
+Sei $\tau\subset \mathbb{R}^3$ ein beliebiges Dreieck (A,B,C)
 \[
-\tau := \left \{ A,B,C \right \}
-\quad\text{und}\quad
-\tau_r := \left \{ \begin{pmatrix} 0\\0 \end{pmatrix},
-\begin{pmatrix} 1\\0\end{pmatrix},
-\begin{pmatrix} 1\\1\end{pmatrix} \right \}.
+\tau = \left \{
+\begin{pmatrix} a_1\\ a_2 \\ a_3 \end{pmatrix}
+,
+\begin{pmatrix} b_1\\ b_2 \\ b_3 \end{pmatrix}
+,
+\begin{pmatrix} c_1\\ c_2 \\ c_3 \end{pmatrix}
+\right \}
 \]
-Wir suchen also in einem ersten Schritt eine affine Funktion $\chi_{(i,j,k)}:\tau_r\rightarrow\tau$ so dass $\chi_{(i,j,k)}(\tau_r)=\tau$. Die Funktion ist definiert als
+\\
+und $\tau_r \subset \mathbb{R}^2$ ein Referenzdreieck mit
 \[
-\chi_{(i,j,k)}(\hat{x})= i + M\cdot \hat{x}, \quad M := \left[ \begin{pmatrix} j-i \end{pmatrix} |
-\begin{pmatrix} k-j \end{pmatrix} \right] \in Mat(3\times 2,\R)
+ \tau_r = \left \{
+\begin{pmatrix} 0\\ 0 \end{pmatrix}
+,
+\begin{pmatrix} 1\\ 0\end{pmatrix}
+,
+\begin{pmatrix} 1\\ 1\end{pmatrix}
+\right \} .
 \]
-wobei $\hat{x}\in \tau_r$ und $(i,j,k)\in\sigma(A,B,C)$.\\
-Bemerke, die Indizes $(i,j,k)$ definieren wie die Eckpunkte von $\tau$ auf die Eckpunkte von $\tau_r$ abgebildet werden. Durch eine geeignete Wahl der Permutation können wir die Transformation beeinflussen, was sich später auf Konvergenzgeschwindigkeit der Gauss - Quadratur auswirkt.
-In einem zweiten Schritt transformieren wir das Referenzdreieck ins Einheitsquadrat $Q$. Dafür definieren wir folgende Funktion:
+\\
+Gesucht wird eine affine Funktion $\chi_I$ von $\tau$ nach $\tau_r$ so dass: $\chi_{(i,j,k)}(\tau) = \tau_r$             nktion ist gegeben durch:
 \[
-\rho : Q \rightarrow \tau_r,\quad \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto
-\begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
+\chi_I(x) = I + M\cdot x, \quad M := \left[
+\begin{pmatrix} B-A \end{pmatrix}
+|
+\begin{pmatrix} B-C \end{pmatrix}
+\right]
+ \in Mat(3\times 2,\mathbb{R})
 \]
-Betrachten wir nun das ursprüngliche Integral und wenden den Transformationssatz doppelt mit den obigen Funktionen an.
-\begin{align*}
-V &=\int_{\tau}f(x) dx\\
-&= \int_{\tau_r}(f\circ\chi_{(i,j,k)})(\hat{x}) \cdot \sqrt{det(M^T\cdot M)} dx\\
-&=\int_{Q} (f\circ\chi_{(i,j,k)}\circ\rho)(\mu,\nu) \cdot \sqrt{det(M^T\cdot M)} \cdot \sqrt{det(J_\rho)} dx\\
-&=\int_{0}^{1}\int_{0}^{1} 
-\end{align*}
+wobei I der Eckpunkt von $\tau$ ist, der auf 0 abgebildet wied.
+\\
+Ausgehend von diesem Referenzdreieck wird die Transformation ins Einheitsquadrat sehr einfach. Sie ist durch folgende Funktion gegeben:
+\[
+	\rho : \mathbb{R}^2 \rightarrow \mathbb{R}^2, \begin{pmatrix} \mu,\nu \end{pmatrix} \mapsto \begin{pmatrix} \mu\\\mu\cdot\nu \end{pmatrix}
+\]
 \\
 
 \newpage
 
 \section{Behandelte Funktionen und ihre Problemstellen}
-
-
-Probleme die mit der Transformation auftauchen --> Singularitäten und ihre Lösungen
+Umformungen mit Transformationssatz
 
 \newpage
 
-\section{Qauss - Quadratur}
+\section{Qauss-Quadratur}
 \subsection{Berechnung der Stützstellen und Gewichte}
 
 \newpage
@@ -118,10 +127,10 @@ Für das Testen unserer Methoden spielen verschiedene Parameter eine entscheiden
 Zu den Parametern die Einfluss auf das Resultat haben können gehören :
 
 \begin{itemize}
-	\item Form des Referenzdreiecks \& Positionierung im $\R^3$
-	\item Gutartigkeit der Funktion bzgl. Singularitäten
-	\item Abhängigkeit von der Wahl des Referenzeckpunktes
-	\item Anzahl der Gauss - Stützstellen
+	\item Form des Referenzdreiecks \& Positionierung im $\mathbb{R}^3$
+	\item Gutartigkeit der Funktion bezgl. Singularitäten
+	\item Abhängigkeit von der Wahl des Referenzvertexes
+	\item Anzahl der Gausspunkte
 \end{itemize}
 
 Unser Auftrag war es konkret unsere Methode an folgenden Funktionen unter beliebiger Wahl des Referenzdreiecks zu Testen:
@@ -130,22 +139,48 @@ Unser Auftrag war es konkret unsere Methode an folgenden Funktionen unter belieb
 
 
 \begin{itemize}
-	\item Polynome beliebigen Grades
-	\item $f(y) = \frac{1}{||y - A_l||} $ mit $A_t$ einem fixierten Eckpunkt des Dreiecks
-	\item $g(y) = log(||x - y||)  , \text{mit} \quad x = (x_1,x_2,x_3) \in \R^3\quad$ fixiert 
-	\item $h(y) =x\cdot log(x) $
+	\item Polynome beliebigen grades
+	\item $f(y) &= \frac{1}{||y - A_l||} $ mit $A_t$ ein fixierter Vertex des Dreiecks
+	\item $g(y) &= log(||x - y||)  , mit\quad x = (x_1,x_2,x_3) \in \mathbb{R}R^3\quad$ \txt{fixiert} 
+	\item $h(y) &=x\time log(x) $
 \end{itemize}
 
 Die Wahl der Test-Funktionen wurde so getroffen, um die Methode gezielt auf kritische Resultate oder eine allfällige Run-Time-Inefficency zu untersuchen.\\
 Bei den Polynomen liegt der Fokus darauf, die Präzision der Methode unter wachsendem Grad des Polynoms zu untersuchen.
 \\
-Bei $f(y)$ liegt die Problematik innerhalb des Betrags im Nenner des Bruchs. Wenn sich der Wert $y$ dem Eckpunkt des Dreiecks nähert, kann abhängig der Wahl des Referenzeckpunktes eine Singularität auftreten.\\
-Die Funktion $g(y)$ bewegt sich sehr schnell gegen $-\infty$ wenn $x$ und $y$ sich einander annähern, was insbesondere zu einer starken Verfälschung des Resultats führen kann.\\
-
+Bei $f(y)$ liegt die Problematik innerhalb des Betrags im Nenner des Bruchs. wenn sich der wert $y$ dem Vertex des Dreiecks nähert kann abhängig der Wahl des Referenzvertexes eine Singularität auftreten.\\
+Die funktion $g(y)$ bewegt sich sehr schnell gegen $-\infty$ wenn $x$ und $y$ sich einander annähern, was insbesondere zu einer starken verfälschung des Resultats führen kann.\\
+\\
+--- $h(y)$ something blabla
+\\
 
 \subsection{Testverfahren}
 
-Das Testen dieser Funktionen
+Das Testen dieser Funktionen verläuft nach folgendem Schema: \\
+\begin{center}
+\begin{tikzpicture}[node distance = 2cm, auto]
+
+% Place nodes
+\node [block] (init) {Wahl des Dreiecks};
+\node [block, right of=init] (referenz) {Wahl des Referenzvertex};
+\node [block, below of=init] (identify) {identify candidate models};
+\node [block, below of=identify] (evaluate) {evaluate candidate models};
+\node [block, left of=evaluate, node distance=3cm] (update) {update model};
+\node [decision, below of=evaluate] (decide) {is best candidate better?};
+\node [block, below of=decide, node distance=3cm] (stop) {stop};
+% Draw edges
+\path [line] (init) -- (identify);
+\path [line] (identify) -- (evaluate);
+\path [line] (evaluate) -- (decide);
+\path [line] (decide) -| node [near start] {yes} (update);
+\path [line] (update) |- (identify);
+\path [line] (decide) -- node {no}(stop);
+\path [line,dashed] (expert) -- (init);
+\path [line,dashed] (system) -- (init);
+\path [line,dashed] (system) |- (evaluate);
+\end{tikzpicture}
+\end{center}
+
 
 
 \newpage
