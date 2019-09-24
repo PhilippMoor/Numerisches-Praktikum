@@ -1,6 +1,6 @@
 clc;clear all;close all;
 
-N=25;weights=zeros(N,N);nodes=zeros(N,N);
+N=50;weights=zeros(N,N);nodes=zeros(N,N);
 
 for i=1:N+1
     [nodes(i,1:i),weights(i,1:i)]=getGaussValues(i,0,1);
