@@ -363,7 +363,7 @@ f=@(x) 1/sqrt((x(1)-A(1))^2+(x(2)-A(2))^2);
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
 n=20;
-I=Gauss_Quadrature(20,g)
+I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
@@ -375,7 +375,6 @@ m_tau=make_m_tau_mat(A,B,C,type);
 f=@(x) 1/sqrt((x(1)-A(1))^2+(x(2)-A(2))^2);
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 n=20;
-I=Gauss_Quadrature(20,g)
 rel_error_2=zeros(n,1);value=zeros(n,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
@@ -387,7 +386,6 @@ m_tau=make_m_tau_mat(A,B,C,type);
 f=@(x) 1/sqrt((x(1)-A(1))^2+(x(2)-A(2))^2);
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 n=20;
-I=Gauss_Quadrature(20,g)
 rel_error_3=zeros(n,1);value=zeros(n,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
@@ -407,6 +405,6 @@ grid on
 
 h = figure(1);
 
-print(h,'filename','-dpdf','-r0')
+% print(h,'filename','-dpdf','-r0')
 
 
