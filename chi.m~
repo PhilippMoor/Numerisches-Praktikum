@@ -1,6 +1,0 @@
-function y = chi(A,B,C,m_tau,type,x)
-temp=[A,B,C];
-% type 1 -> transforms A to the origin
-
-y=temp(:,type)+m_tau*x;
-end
