@@ -58,7 +58,7 @@ f=@(x) x(1)^25+3*x(1)^6*x(2)^15+x(2);
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
 n=10;
-I=Gauss_Quadrature(20,g)
+I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
@@ -71,7 +71,7 @@ rel_error_1
 step_error
 value
 
-subplot(4,3,2);
+%subplot(4,3,2);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -146,7 +146,7 @@ step_error
 value
 
 
-subplot(4,3,4);
+%subplot(4,3,4);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -172,7 +172,7 @@ f=@(x) sin(x(1))*cos(x(2));
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
 n=20;
-I=Gauss_Quadrature(20,g)
+I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
@@ -185,7 +185,7 @@ rel_error_1
 step_error
 value
 
-subplot(4,3,5);
+%subplot(4,3,5);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -209,7 +209,7 @@ f=@(x) exp(x(1))*exp(1-x(2));
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
 n=20;
-I=Gauss_Quadrature(20,g)
+I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
@@ -223,7 +223,7 @@ step_error
 value
 
 
-subplot(4,3,6);
+%subplot(4,3,6);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -250,7 +250,7 @@ f=@(x) 1/sqrt((x(1)-A(1))^2+(x(2)-A(2))^2);
 % transforming to integrand over unit square
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
-n=20;
+n=10;
 I=Gauss_Quadrature(20,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
@@ -288,7 +288,7 @@ f=@(x) 1/sqrt((x(1)-A(1))^2+(x(2)-A(2))^2);
 % transforming to integrand over unit square
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
-n=20;
+n=10;
 I=Gauss_Quadrature(20,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
@@ -302,7 +302,7 @@ rel_error_1
 step_error
 value
 
-subplot(4,3,8);
+%subplot(4,3,8);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -325,7 +325,7 @@ f=@(x) 1/sqrt((x(1)-A(1))^2+(x(2)-A(2))^2);
 % transforming to integrand over unit square
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
-n=20;
+n=10;
 I=Gauss_Quadrature(20,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
@@ -339,7 +339,7 @@ rel_error_1
 step_error
 value
 
-subplot(4,3,9);
+%subplot(4,3,9);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
