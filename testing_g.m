@@ -14,7 +14,7 @@ I=Gauss_Quadrature(20,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_1(k)=abs(I-value(k));
+    rel_error_1(k)=abs((I-value(k))/I);
 end
 
 type=2;
@@ -24,7 +24,7 @@ I=Gauss_Quadrature(20,g)
 rel_error_2=zeros(n,1);value=zeros(n,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_2(k)=abs(I-value(k));
+    rel_error_2(k)=abs((I-value(k))/I);
 end
 
 type=3;
@@ -34,7 +34,7 @@ I=Gauss_Quadrature(20,g)
 rel_error_3=zeros(n,1);value=zeros(n,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_3(k)=abs(I-value(k));
+    rel_error_3(k)=abs((I-value(k))/I);
 end
 
 
