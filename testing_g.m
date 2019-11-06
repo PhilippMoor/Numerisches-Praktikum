@@ -40,7 +40,6 @@ end
 
 h = figure();
 semilogy(1:n,rel_error_1,'*',1:n,rel_error_2,'*',1:n,rel_error_3,'*')
-hold on
 legend('type A','type B','type C')
 xlabel('n');
 grid on
