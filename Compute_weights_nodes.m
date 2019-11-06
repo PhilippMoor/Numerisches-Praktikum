@@ -1,5 +1,3 @@
-clc;clear all;close all;
-
 N=50;weights=zeros(N,N);nodes=zeros(N,N);
 
 for i=1:N+1
