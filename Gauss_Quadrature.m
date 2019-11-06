@@ -1,4 +1,4 @@
-function [integral,error] = Gauss_Quadrature(n,f)
+function integral = Gauss_Quadrature(n,f)
 
 % load structure with nodes and weights
 struct = load("nodes.mat");
@@ -21,10 +21,6 @@ for i=1:n+1
     sum=sum+sum_y;
 end
 integral=sum;
-
-
-% Computing the error
-error=1;
 
 
 end
