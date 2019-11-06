@@ -18,12 +18,12 @@ f=@(x) x(1)^10+3*x(1)^6*x(2)^15+x(2);
 % transforming to integrand over unit square
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
-n=10;
-I=Gauss_Quadrature(20,g)
+n=20;
+I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_1(k)=abs(I-value(k));
+    rel_error_1(k)=abs((I-value(k))/I);
     if k>1
         step_error(k-1)=abs(value(k)-value(k-1));
     end
@@ -34,7 +34,7 @@ value
 
 fig = figure();
 
-subplot(4,3,1);
+%subplot(4,3,1);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -57,12 +57,12 @@ f=@(x) x(1)^25+3*x(1)^6*x(2)^15+x(2);
 % transforming to integrand over unit square
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
-n=10;
+n=20;
 I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_1(k)=abs(I-value(k));
+    rel_error_1(k)=abs((I-value(k))/I);
     if k>1
         step_error(k-1)=abs(value(k)-value(k-1));
     end
@@ -95,11 +95,11 @@ f=@(x) x(1)^25+3*x(1)^6*x(2)^15+x(2);
 g=@(x) f(chi(A,B,C,m_tau,type,rho(x)))*sqrt(det(m_tau'*m_tau))*x(1);
 
 n=20;
-I=Gauss_Quadrature(20,g)
+I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_1(k)=abs(I-value(k));
+    rel_error_1(k)=abs((I-value(k))/I);
     if k>1
         step_error(k-1)=abs(value(k)-value(k-1));
     end
@@ -108,7 +108,7 @@ rel_error_1
 step_error
 value
 
-subplot(4,3,3);
+%subplot(4,3,3);
 
 semilogy(1:n,rel_error_1,'blue*',1:n-1, step_error,'redo')
 legend('relative error','step error')
@@ -176,7 +176,7 @@ I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_1(k)=abs(I-value(k));
+    rel_error_1(k)=abs((I-value(k))/I);
     if k>1
         step_error(k-1)=abs(value(k)-value(k-1));
     end
@@ -213,7 +213,7 @@ I=Gauss_Quadrature(40,g)
 rel_error_1=zeros(n,1);value=zeros(n,1);step_error=zeros(n-1,1);
 for k=1:n
     value(k)=Gauss_Quadrature(k,g);
-    rel_error_1(k)=abs(I-value(k));
+    rel_error_1(k)=abs((I-value(k))/I);
     if k>1
         step_error(k-1)=abs(value(k)-value(k-1));
     end
