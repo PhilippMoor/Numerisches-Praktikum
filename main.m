@@ -18,4 +18,3 @@ for type=1:3
         Gauss_Quadrature(n,g)
     end
 end
-
